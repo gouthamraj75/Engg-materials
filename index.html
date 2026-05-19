@@ -3,694 +3,104 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Engineering Study Materials - G Goutham</title>
   <meta name="description" content="Engineering study materials for K.S.R.M College of Engineering by G Goutham" />
-  <meta property="og:title" content="Engineering Study Materials" />
-  <meta property="og:description" content="Engineering study materials for K.S.R.M College of Engineering" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/DFBUjhb9GneVxAjCZ9Hw3OSx4gA2/social-images/social-1773339076102-WhatsApp_Image_2026-03-12_at_23.40.45.webp" />
-  <link rel="icon" href="/favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>Engineering Study Materials - G Goutham</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --background: hsl(220, 20%, 97%);
-      --foreground: hsl(220, 25%, 10%);
-      --card: hsl(0, 0%, 100%);
-      --card-foreground: hsl(220, 25%, 10%);
-      --primary: hsl(210, 100%, 45%);
-      --primary-foreground: hsl(0, 0%, 100%);
-      --muted: hsl(210, 20%, 94%);
-      --muted-foreground: hsl(210, 10%, 50%);
-      --accent: hsl(170, 80%, 40%);
-      --accent-foreground: hsl(0, 0%, 100%);
-      --border: hsl(210, 20%, 88%);
-      --shadow-card: 0 4px 20px -4px hsla(210, 30%, 50%, 0.12);
-      --shadow-elevated: 0 8px 30px -8px hsla(210, 30%, 50%, 0.2);
+      --primary: #1a73e8; --primary-dark: #1557b0; --accent: #fbbc04;
+      --bg: #f0f4ff; --card: #ffffff; --text: #1e1e2e; --muted: #6b7280;
+      --gradient: linear-gradient(135deg, #1a73e8 0%, #6c3fd8 100%);
     }
+    body { font-family: "Poppins", sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--background);
-      color: var(--foreground);
-      min-height: 100vh;
+    .hero {
+      background: var(--gradient); color: #fff;
+      padding: 60px 20px 80px; text-align: center; position: relative; overflow: hidden;
     }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .profile-pic-wrap { position: relative; display: inline-block; margin-bottom: 20px; }
+    .profile-pic {
+      width: 130px; height: 130px; border-radius: 50%; object-fit: cover;
+      border: 4px solid #fff; box-shadow: 0 8px 32px rgba(0,0,0,0.25); display: block; object-position: center top;
+    }
+    .online-dot {
+      position: absolute; bottom: 8px; right: 8px;
+      width: 18px; height: 18px; background: #22c55e; border-radius: 50%; border: 3px solid #fff;
+    }
+    .hero h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 6px; }
+    .hero .college { font-size: 0.9rem; opacity: 0.85; margin-bottom: 6px; }
+    .hero .tagline { font-size: 1rem; font-weight: 500; opacity: 0.9; margin-bottom: 28px; }
+    .social-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
+    .social-links a {
+      color: #fff; width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; transition: background 0.2s, transform 0.2s; text-decoration: none;
+    }
+    .social-links a:hover { background: rgba(255,255,255,0.3); transform: scale(1.1); }
+    .btn-started {
+      display: inline-block; padding: 13px 38px; background: #fff; color: var(--primary);
+      font-weight: 700; font-size: 1rem; border-radius: 50px; text-decoration: none;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-started:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
 
-    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
-
-    .page { display: none; min-height: 100vh; }
-    .page.active { display: flex; }
-
-    /* ===== Profile Page ===== */
-    #profilePage {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      background: linear-gradient(135deg, hsl(210,100%,20%), hsl(250,80%,30%), hsl(280,90%,25%));
-      position: relative;
-      overflow: hidden;
-    }
-    #profilePage .blob1 {
-      position: absolute; top: -20%; left: -10%; width: 500px; height: 500px;
-      border-radius: 50%; background: hsla(200,100%,50%,0.15); filter: blur(80px);
-    }
-    #profilePage .blob2 {
-      position: absolute; bottom: -20%; right: -10%; width: 500px; height: 500px;
-      border-radius: 50%; background: hsla(300,80%,50%,0.12); filter: blur(80px);
-    }
-    .profile-content {
-      display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
-      position: relative; z-index: 1; animation: fadeIn 0.6s ease;
-    }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .profile-photo {
-      width: 160px; height: 160px; border-radius: 50%;
-      border: 4px solid hsla(0,0%,100%,0.3);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-      object-fit: cover; object-position: top;
-    }
-    .profile-name { font-size: 2.25rem; font-weight: 700; color: white; }
-    .profile-college { color: hsla(0,0%,100%,0.85); font-size: 1rem; font-weight: 500; }
-    .profile-desc { color: hsla(0,0%,100%,0.6); font-size: 1.125rem; }
-    .btn-start {
-      margin-top: 2rem; display: flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 2rem; border-radius: 9999px; border: none;
-      background: white; color: hsl(250,80%,30%); font-family: 'Outfit', sans-serif;
-      font-size: 1.125rem; font-weight: 600; cursor: pointer;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-start:hover { transform: scale(1.05); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
-    .btn-start:active { transform: scale(0.95); }
-    .hint { font-size: 0.875rem; color: hsla(0,0%,100%,0.5); margin-top: 0.5rem; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
-
-    /* Contact Us Button */
-    .contact-btn {
-      position: absolute; top: 1.25rem; right: 1.25rem; z-index: 10;
-      background: hsla(0,0%,100%,0.15); backdrop-filter: blur(10px);
-      border: 1px solid hsla(0,0%,100%,0.25); border-radius: 9999px;
-      padding: 0.5rem 1.25rem; color: white; font-family: 'Outfit', sans-serif;
-      font-size: 0.875rem; font-weight: 500; cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .contact-btn:hover { background: hsla(0,0%,100%,0.25); transform: scale(1.05); }
-
-    /* Contact Modal */
-    .contact-overlay {
-      display: none; position: fixed; inset: 0; z-index: 100;
-      background: hsla(0,0%,0%,0.6); backdrop-filter: blur(6px);
-      align-items: center; justify-content: center;
-    }
-    .contact-overlay.active { display: flex; }
-    .contact-modal {
-      background: linear-gradient(145deg, hsl(220,30%,18%), hsl(250,35%,22%));
-      border: 1px solid hsla(0,0%,100%,0.15); border-radius: 1.25rem;
-      padding: 2rem; width: 90%; max-width: 360px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5); animation: fadeIn 0.3s ease;
-    }
-    .contact-modal h2 {
-      color: white; font-size: 1.375rem; margin-bottom: 1.5rem; text-align: center;
-    }
-    .contact-item {
-      display: flex; align-items: center; gap: 0.75rem;
-      padding: 0.75rem 1rem; margin-bottom: 0.75rem;
-      background: hsla(0,0%,100%,0.08); border-radius: 0.75rem;
-      text-decoration: none; color: hsla(0,0%,100%,0.9);
-      font-size: 0.95rem; transition: background 0.2s;
-    }
-    .contact-item:hover { background: hsla(0,0%,100%,0.15); }
-    .contact-item svg { width: 22px; height: 22px; flex-shrink: 0; }
-    .contact-item span { font-weight: 500; }
-    .contact-close {
-      display: block; margin: 1rem auto 0; background: hsla(0,0%,100%,0.12);
-      border: 1px solid hsla(0,0%,100%,0.2); border-radius: 9999px;
-      padding: 0.5rem 2rem; color: white; font-family: 'Outfit', sans-serif;
-      font-size: 0.9rem; cursor: pointer; transition: background 0.2s;
-    }
-    .contact-close:hover { background: hsla(0,0%,100%,0.25); }
-
-    /* ===== Common inner page ===== */
-    .inner-page { flex-direction: column; padding: 1.5rem; }
-    .back-btn {
-      display: flex; align-items: center; gap: 0.5rem; background: none; border: none;
-      color: var(--muted-foreground); font-family: 'Outfit', sans-serif; font-size: 1rem;
-      cursor: pointer; margin-bottom: 1.5rem; transition: color 0.2s;
-    }
-    .back-btn:hover { color: var(--foreground); }
-    .page-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem; }
-    .page-header .icon { font-size: 1.5rem; }
-    .page-header h1 { font-size: 1.875rem; font-weight: 700; }
-    .page-subtitle { color: var(--muted-foreground); margin-bottom: 2rem; }
-
-    /* ===== Branch page background ===== */
-    #branchPage {
-      background: linear-gradient(160deg, hsl(220,30%,15%) 0%, hsl(260,40%,20%) 40%, hsl(200,50%,18%) 100%);
-      position: relative; overflow: hidden;
-    }
-    #branchPage::before {
-      content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px;
-      border-radius: 50%; background: radial-gradient(circle, hsla(210,100%,60%,0.15), transparent 70%);
-      filter: blur(40px); pointer-events: none;
-    }
-    #branchPage::after {
-      content: ''; position: absolute; bottom: -80px; left: -80px; width: 350px; height: 350px;
-      border-radius: 50%; background: radial-gradient(circle, hsla(280,80%,60%,0.12), transparent 70%);
-      filter: blur(40px); pointer-events: none;
-    }
-    #branchPage h1, #branchPage .page-subtitle { color: hsla(0,0%,100%,0.95); position: relative; z-index: 1; }
-    #branchPage .page-subtitle { color: hsla(0,0%,100%,0.6); }
-    #branchPage .back-btn { color: hsla(0,0%,100%,0.5); }
-    #branchPage .back-btn:hover { color: hsla(0,0%,100%,0.9); }
-
-    /* ===== Branch cards ===== */
-    .branch-list { display: flex; flex-direction: column; gap: 1rem; max-width: 480px; margin: 0 auto; position: relative; z-index: 1; }
+    .section { max-width: 700px; margin: 0 auto; padding: 40px 20px; }
+    .section h2 { text-align: center; font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; }
+    .section .subtitle { text-align: center; color: var(--muted); font-size: 0.9rem; margin-bottom: 28px; }
+    .branch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
     .branch-card {
-      display: flex; align-items: center; gap: 1rem; padding: 1.25rem;
-      border-radius: 0.75rem; border: 1px solid hsla(0,0%,100%,0.1);
-      cursor: pointer; text-align: left; font-family: 'Outfit', sans-serif;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2); transition: all 0.3s ease; position: relative; overflow: hidden;
+      background: var(--card); border-radius: 14px; padding: 22px 12px; text-align: center;
+      cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      transition: transform 0.2s, box-shadow 0.2s; border: 2px solid transparent;
+      text-decoration: none; color: var(--text);
     }
-    .branch-card::before {
-      content: ''; position: absolute; inset: 0; opacity: 0; transition: opacity 0.3s;
-    }
-    .branch-card:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.3); border-color: hsla(0,0%,100%,0.2); }
+    .branch-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(26,115,232,0.15); border-color: var(--primary); }
+    .branch-card .icon { font-size: 2rem; margin-bottom: 10px; }
+    .branch-card .label { font-size: 0.85rem; font-weight: 600; }
 
-    /* Per-branch gradient backgrounds */
-    .branch-card[data-branch="cse"] { background: linear-gradient(135deg, hsla(210,80%,30%,0.6), hsla(230,60%,25%,0.8)); }
-    .branch-card[data-branch="cse"]:hover { background: linear-gradient(135deg, hsla(210,80%,35%,0.8), hsla(230,60%,30%,0.9)); }
-    .branch-card[data-branch="ece"] { background: linear-gradient(135deg, hsla(280,60%,30%,0.6), hsla(300,50%,25%,0.8)); }
-    .branch-card[data-branch="ece"]:hover { background: linear-gradient(135deg, hsla(280,60%,35%,0.8), hsla(300,50%,30%,0.9)); }
-    .branch-card[data-branch="eee"] { background: linear-gradient(135deg, hsla(45,80%,30%,0.6), hsla(30,70%,25%,0.8)); }
-    .branch-card[data-branch="eee"]:hover { background: linear-gradient(135deg, hsla(45,80%,35%,0.8), hsla(30,70%,30%,0.9)); }
-    .branch-card[data-branch="mech"] { background: linear-gradient(135deg, hsla(0,60%,30%,0.6), hsla(15,50%,25%,0.8)); }
-    .branch-card[data-branch="mech"]:hover { background: linear-gradient(135deg, hsla(0,60%,35%,0.8), hsla(15,50%,30%,0.9)); }
-    .branch-card[data-branch="civil"] { background: linear-gradient(135deg, hsla(160,60%,25%,0.6), hsla(180,50%,20%,0.8)); }
-    .branch-card[data-branch="civil"]:hover { background: linear-gradient(135deg, hsla(160,60%,30%,0.8), hsla(180,50%,25%,0.9)); }
-
-    .branch-card .emoji { font-size: 2rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
-    .branch-card .info { flex: 1; }
-    .branch-card .short { font-weight: 600; color: hsla(0,0%,100%,0.95); transition: color 0.2s; }
-    .branch-card:hover .short { color: white; }
-    .branch-card .full { font-size: 0.875rem; color: hsla(0,0%,100%,0.6); }
-    .branch-card .chevron { width: 20px; height: 20px; color: hsla(0,0%,100%,0.4); }
-
-    /* ===== Semester grid ===== */
-    .semester-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 480px; margin: 0 auto; }
-    @media (min-width: 640px) { .semester-grid { grid-template-columns: repeat(4, 1fr); } }
-    .sem-card {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      padding: 1.5rem; border-radius: 0.75rem; background: var(--card); border: 1px solid var(--border);
-      cursor: pointer; font-family: 'Space Grotesk', sans-serif;
-      box-shadow: var(--shadow-card); transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    .fab {
+      position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px;
+      border-radius: 50%; background: var(--gradient); color: #fff; border: none;
+      font-size: 1.4rem; cursor: pointer; box-shadow: 0 4px 20px rgba(26,115,232,0.4);
+      display: flex; align-items: center; justify-content: center; z-index: 100; transition: transform 0.2s;
     }
-    .sem-card:hover { border-color: hsla(210,100%,45%,0.5); box-shadow: var(--shadow-elevated); }
-    .sem-card:hover .sem-num { transform: scale(1.1); }
-    .sem-num { font-size: 1.875rem; font-weight: 700; color: var(--primary); transition: transform 0.2s; }
-    .sem-label { font-size: 0.875rem; color: var(--muted-foreground); margin-top: 0.25rem; font-family: 'Outfit', sans-serif; }
-
-    /* ===== Subject list ===== */
-    .subject-list { display: flex; flex-direction: column; gap: 0.75rem; max-width: 480px; margin: 0 auto; }
-    .subject-card {
-      display: flex; align-items: center; gap: 1rem; padding: 1.25rem;
-      border-radius: 0.75rem; background: var(--card); border: 1px solid var(--border);
-      box-shadow: var(--shadow-card); text-decoration: none; color: inherit; transition: all 0.2s;
+    .fab:hover { transform: scale(1.1); }
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+      z-index: 200; align-items: flex-end; justify-content: center;
     }
-    .subject-card.has-material { border-color: hsla(170,80%,40%,0.5); cursor: pointer; }
-    .subject-card.has-material:hover { border-color: var(--accent); box-shadow: var(--shadow-elevated); }
-    .subject-icon {
-      width: 40px; height: 40px; border-radius: 0.5rem;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    .modal-overlay.active { display: flex; }
+    .modal {
+      background: #fff; border-radius: 24px 24px 0 0; padding: 30px 24px;
+      width: 100%; max-width: 480px; animation: slideUp 0.3s ease;
     }
-    .subject-icon.active { background: hsla(170,80%,40%,0.1); color: var(--accent); }
-    .subject-icon.inactive { background: var(--muted); color: var(--muted-foreground); }
-    .subject-info { flex: 1; }
-    .subject-name { font-weight: 600; color: var(--card-foreground); }
-    .subject-code { font-size: 0.875rem; color: var(--muted-foreground); }
-    .view-pdf { display: flex; align-items: center; gap: 0.25rem; font-size: 0.875rem; font-weight: 500; color: var(--accent); }
-    .coming-soon {
-      font-size: 0.75rem; color: var(--muted-foreground); background: var(--muted);
-      padding: 0.25rem 0.5rem; border-radius: 9999px;
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    .modal h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; }
+    .contact-item {
+      display: flex; align-items: center; gap: 14px; padding: 13px 0;
+      border-bottom: 1px solid #f0f0f0; text-decoration: none; color: var(--text); font-size: 0.95rem;
     }
-
-    /* SVG icons inline */
-    .icon-svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .contact-item:last-child { border-bottom: none; }
+    .c-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: #fff; flex-shrink: 0; }
+    .c-phone { background: #22c55e; } .c-email { background: #ef4444; }
+    .c-insta { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+    .c-wa { background: #25d366; } .c-li { background: #0077b5; }
+    .modal-close {
+      width: 100%; margin-top: 16px; padding: 13px; border: 2px solid #e5e7eb;
+      border-radius: 12px; background: none; font-family: "Poppins", sans-serif;
+      font-size: 0.95rem; cursor: pointer; font-weight: 600; color: var(--muted);
+    }
+    footer { text-align: center; padding: 20px; color: var(--muted); font-size: 0.8rem; }
   </style>
 </head>
 <body>
 
-  <!-- ===== PROFILE PAGE ===== -->
-  <div id="profilePage" class="page active">
-    <div class="blob1"></div>
-    <div class="blob2"></div>
-    <button class="contact-btn" onclick="document.getElementById('contactModal').classList.add('active')">?? Contact Us</button>
-    <div class="profile-content">
-      <img src="/src/assets/profile-photo.jpeg" alt="G Goutham" class="profile-photo" />
-      <h1 class="profile-name">G Goutham</h1>
-      <p class="profile-college">K.S.R.M College of Engineering</p>
-      <p class="profile-desc">Engineering Study Materials</p>
-      <button class="btn-start" onclick="showBranches()">
-        Get Started
-        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-
-    </div>
-  </div>
-
-  <!-- Contact Modal -->
-  <div id="contactModal" class="contact-overlay" onclick="if(event.target===this)this.classList.remove('active')">
-    <div class="contact-modal">
-      <h2>?? Contact Me</h2>
-      <a href="tel:6301143274" class="contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        <span>6301143274</span>
-      </a>
-      <a href="mailto:gouthamraju723@gmail.com" class="contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
-        <span>gouthamraju723@gmail.com</span>
-      </a>
-      <a href="https://instagram.com/gooutham" target="_blank" class="contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
-        <span>@gooutham</span>
-      </a>
-      <a href="https://wa.me/916301143274" target="_blank" class="contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-        <span>WhatsApp: 6301143274</span>
-      </a>
-      <a href="https://www.linkedin.com/in/gowtham-raju-09a552322" target="_blank" class="contact-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        <span>LinkedIn</span>
-      </a>
-      <button class="contact-close" onclick="document.getElementById('contactModal').classList.remove('active')">Close</button>
-    </div>
-  </div>
-
-  <!-- ===== BRANCHES PAGE ===== -->
-  <div id="branchPage" class="page inner-page">
-    <button class="back-btn" onclick="showProfile()">
-      <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-      Back
-    </button>
-    <h1 style="font-size:1.875rem;font-weight:700;margin-bottom:0.5rem;">Select Branch</h1>
-    <p class="page-subtitle">Choose your engineering branch</p>
-    <div id="branchList" class="branch-list"></div>
-  </div>
-
-  <!-- ===== SEMESTERS PAGE ===== -->
-  <div id="semesterPage" class="page inner-page">
-    <button class="back-btn" onclick="showBranches()">
-      <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-      Back
-    </button>
-    <div class="page-header">
-      <span id="semIcon" class="icon"></span>
-      <h1 id="semTitle"></h1>
-    </div>
-    <p class="page-subtitle">Select a semester</p>
-    <div id="semesterGrid" class="semester-grid"></div>
-  </div>
-
-  <!-- ===== SUBJECTS PAGE ===== -->
-  <div id="subjectPage" class="page inner-page">
-    <button class="back-btn" id="subjectBackBtn">
-      <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-      Back
-    </button>
-    <div class="page-header">
-      <span id="subIcon" class="icon"></span>
-      <h1 id="subTitle"></h1>
-    </div>
-    <p class="page-subtitle">Study materials</p>
-    <div id="subjectList" class="subject-list"></div>
-  </div>
-
-  <script>
-    // ===== DATA =====
-    const branches = [
-      { id: "cse", name: "Computer Science & Engineering", shortName: "CSE", icon: "??" },
-      { id: "ece", name: "Electronics & Communication Engineering", shortName: "ECE", icon: "??" },
-      { id: "eee", name: "Electrical & Electronics Engineering", shortName: "EEE", icon: "?" },
-      { id: "mech", name: "Mechanical Engineering", shortName: "MECH", icon: "??" },
-      { id: "civil", name: "Civil Engineering", shortName: "CIVIL", icon: "???" },
-    ];
-
-    const semesterSubjects = {
-      cse: [
-        { number: 1, subjects: [
-          { name: "LAC", code: "LAC", materialUrl: "https://vemu.org/uploads/lecture_notes/23_12_2022_539602025.pdf" },
-          { name: "Chemistry", code: "CHEM", materialUrl: "https://www.bdu.ac.in/cde/SLM/B.Sc.%20Chemistry/I%20Year/Major%20Paper%20-%20I%20General%20Chemistry.pdf" },
-          { name: "Introduction to Programming", code: "IP", materialUrl: "https://aitskadapa.ac.in/img/pdf/INTRODUCTION-TO-PROGRAMING-min.pdf" },
-          { name: "Basic Civil and Mechanical Engineering", code: "BCME", materialUrl: "https://aitskadapa.ac.in/img/pdf/BCME-min.pdf" },
-        ]},
-        { number: 2, subjects: [
-          { name: "DEV", code: "DEV", materialUrl: "https://vemu.org/uploads/lecture_notes/16_02_2023_44794940.pdf" },
-          { name: "Data Structure", code: "DS", materialUrl: "https://www.jsscacs.edu.in/sites/default/files/Department%20Files/Data%20Structures%20Full%20Notes.pdf" },
-          { name: "Physics", code: "PHY", materialUrl: "https://mrcet.com/downloads/digital_notes/HS/R20/Engineering%20Physics.pdf" },
-          { name: "English", code: "ENG", materialUrl: "https://mrcet.com/downloads/digital_notes/HS/R20/English(1).pdf" },
-          { name: "BEEE", code: "BEEE", materialUrl: "https://mrcet.com/downloads/digital_notes/hs/beee%20digital%20notes%202020.pdf" },
-          { name: "Engineering Graphics", code: "EG", materialUrl: "https://mrcet.com/downloads/hs/Engineering%20Graphics%20Manual%20final.pdf" },
-        ]},
-        { number: 3, subjects: [
-          { name: "DMGT", code: "DMGT", materialUrl: "https://sriindu.ac.in/wp-content/uploads/2023/10/R20CSE2201-DISCRETE-MATHEMATICS.pdf" },
-          { name: "ADS", code: "ADS", materialUrl: "https://www.lpude.in/SLMs/Master%20of%20Computer%20Applications/Sem_2/DECAP770_ADVANCED_DATA_STRUCTURES.pdf" },
-          { name: "Java", code: "JAVA", materialUrl: "https://www.slideshare.net/slideshow/java-notespdf-259708081/259708081" },
-          { name: "DL & DC", code: "DL&DC", materialUrl: "https://www.engrcs.com/courses/engr250/engr250lecture.pdf" },
-          { name: "U.H.V", code: "UHV", materialUrl: "https://srkrec.edu.in/files/MECH/UHV-2.pdf" },
-        ]},
-        { number: 4, subjects: [
-          { name: "P&S", code: "P&S", materialUrl: "https://mrcet.com/downloads/digital_notes/IT/IT_R22%20PROBABILITY%20AND%20STATISTICS_DIGITAL%20NOTES..pdf" },
-          { name: "O.S", code: "OS", materialUrl: "https://sriindu.ac.in/wp-content/uploads/2023/10/R20CSE2202-OPERATING-SYSTEMS.pdf" },
-          { name: "D.B.M.S", code: "DBMS", materialUrl: "https://www.arta.ac.in/assets/pdf/notes/2-2%20CSE%20DBMS%20R23/dbms%20notes%201.pdf" },
-          { name: "MEFA", code: "MEFA", materialUrl: "https://vardhaman.org/wp-content/uploads/2021/03/mefa-lecture-notes.pdf" },
-          { name: "DTI", code: "DTI", materialUrl: "https://vemu.org/uploads/lecture_notes/15_02_2021_1439199113.pdf" },
-        ]},
-        { number: 5, subjects: [
-          { name: "Artificial Intelligence", code: "AI" },
-          { name: "Compiler Design", code: "CD" },
-          { name: "Web Technologies", code: "WT" },
-          { name: "Theory of Computation", code: "TOC" },
-          { name: "Elective - I", code: "ELEC" },
-        ]},
-        { number: 6, subjects: [
-          { name: "Machine Learning", code: "ML" },
-          { name: "Cryptography & Network Security", code: "CNS" },
-          { name: "Cloud Computing", code: "CC" },
-          { name: "Elective - II", code: "ELEC" },
-          { name: "Elective - III", code: "ELEC" },
-        ]},
-        { number: 7, subjects: [
-          { name: "Big Data Analytics", code: "BD" },
-          { name: "Internet of Things", code: "IoT" },
-          { name: "Elective - IV", code: "ELEC" },
-          { name: "Elective - V", code: "ELEC" },
-          { name: "Mini Project", code: "PROJ" },
-        ]},
-        { number: 8, subjects: [
-          { name: "Major Project", code: "PROJ" },
-          { name: "Seminar", code: "SEM" },
-          { name: "Internship", code: "INT" },
-        ]},
-      ],
-    };
-
-    const devMaterial = "https://old-copper-bu1xatbyta.edgeone.app/devc%20pdf%20.pdf";
-
-    semesterSubjects.ece = [
-      { number: 1, subjects: [
-        { name: "Mathematics - I (LAC)", code: "M1", materialUrl: "https://vemu.org/uploads/lecture_notes/23_12_2022_539602025.pdf" },
-        { name: "Engineering Physics", code: "PHY" },
-        { name: "Engineering Chemistry", code: "CHEM" },
-        { name: "Basic Electrical Engineering", code: "BEE" },
-        { name: "Engineering Graphics", code: "EG" },
-      ]},
-      { number: 2, subjects: [
-        { name: "DEV (Development)", code: "DEV", materialUrl: devMaterial },
-        { name: "Signals & Systems", code: "S&S" },
-        { name: "Electronic Devices", code: "ED" },
-        { name: "Network Analysis", code: "NA" },
-        { name: "Environmental Studies", code: "EVS" },
-      ]},
-      { number: 3, subjects: [
-        { name: "Analog Electronics", code: "AE" },
-        { name: "Digital Electronics", code: "DE" },
-        { name: "Electromagnetic Theory", code: "EMT" },
-        { name: "Control Systems", code: "CS" },
-        { name: "Mathematics - III", code: "M3" },
-      ]},
-      { number: 4, subjects: [
-        { name: "Communication Systems", code: "COMM" },
-        { name: "Linear Integrated Circuits", code: "LIC" },
-        { name: "Pulse & Digital Circuits", code: "PDC" },
-        { name: "Antennas & Wave Propagation", code: "AWP" },
-        { name: "Probability & Statistics", code: "P&S" },
-      ]},
-      { number: 5, subjects: [
-        { name: "Digital Signal Processing", code: "DSP" },
-        { name: "Microprocessors & Microcontrollers", code: "MP" },
-        { name: "Digital Communication", code: "DC" },
-        { name: "VLSI Design", code: "VLSI" },
-        { name: "Elective - I", code: "ELEC" },
-      ]},
-      { number: 6, subjects: [
-        { name: "Embedded Systems", code: "ES" },
-        { name: "Optical Communication", code: "OC" },
-        { name: "Wireless Communication", code: "WC" },
-        { name: "Computer Networks", code: "CN" },
-        { name: "Elective - II", code: "ELEC" },
-      ]},
-      { number: 7, subjects: [
-        { name: "Satellite Communication", code: "SC" },
-        { name: "Radar Engineering", code: "RE" },
-        { name: "IoT & Sensor Networks", code: "IoT" },
-        { name: "Elective - III", code: "ELEC" },
-        { name: "Mini Project", code: "PROJ" },
-      ]},
-      { number: 8, subjects: [
-        { name: "Major Project", code: "PROJ" },
-        { name: "Seminar", code: "SEM" },
-        { name: "Internship", code: "INT" },
-      ]},
-    ];
-
-    semesterSubjects.eee = [
-      { number: 1, subjects: [
-        { name: "Mathematics - I (LAC)", code: "M1", materialUrl: "https://vemu.org/uploads/lecture_notes/23_12_2022_539602025.pdf" },
-        { name: "Engineering Physics", code: "PHY" },
-        { name: "Engineering Chemistry", code: "CHEM" },
-        { name: "Basic Electrical Engineering", code: "BEE" },
-        { name: "Engineering Graphics", code: "EG" },
-      ]},
-      { number: 2, subjects: [
-        { name: "DEV (Development)", code: "DEV", materialUrl: devMaterial },
-        { name: "Circuit Theory", code: "CT" },
-        { name: "Electromagnetic Theory", code: "EMT" },
-        { name: "Digital Electronics", code: "DE" },
-        { name: "Environmental Studies", code: "EVS" },
-      ]},
-      { number: 3, subjects: [
-        { name: "Electrical Machines - I", code: "EM1" },
-        { name: "Power Systems - I", code: "PS1" },
-        { name: "Control Systems", code: "CS" },
-        { name: "Analog Electronics", code: "AE" },
-        { name: "Mathematics - III", code: "M3" },
-      ]},
-      { number: 4, subjects: [
-        { name: "Electrical Machines - II", code: "EM2" },
-        { name: "Power Systems - II", code: "PS2" },
-        { name: "Power Electronics", code: "PE" },
-        { name: "Microprocessors & Microcontrollers", code: "MP" },
-        { name: "Signals & Systems", code: "S&S" },
-      ]},
-      { number: 5, subjects: [
-        { name: "Electrical Drives", code: "ED" },
-        { name: "Switchgear & Protection", code: "SP" },
-        { name: "Instrumentation", code: "INS" },
-        { name: "Digital Signal Processing", code: "DSP" },
-        { name: "Elective - I", code: "ELEC" },
-      ]},
-      { number: 6, subjects: [
-        { name: "Power System Analysis", code: "PSA" },
-        { name: "Renewable Energy Systems", code: "RES" },
-        { name: "High Voltage Engineering", code: "HVE" },
-        { name: "Electrical Machine Design", code: "EMD" },
-        { name: "Elective - II", code: "ELEC" },
-      ]},
-      { number: 7, subjects: [
-        { name: "Smart Grid Technology", code: "SGT" },
-        { name: "FACTS & HVDC", code: "FH" },
-        { name: "Electric Vehicle Technology", code: "EVT" },
-        { name: "Elective - III", code: "ELEC" },
-        { name: "Mini Project", code: "PROJ" },
-      ]},
-      { number: 8, subjects: [
-        { name: "Major Project", code: "PROJ" },
-        { name: "Seminar", code: "SEM" },
-        { name: "Internship", code: "INT" },
-      ]},
-    ];
-
-    semesterSubjects.mech = [
-      { number: 1, subjects: [
-        { name: "Mathematics - I (LAC)", code: "M1", materialUrl: "https://vemu.org/uploads/lecture_notes/23_12_2022_539602025.pdf" },
-        { name: "Engineering Physics", code: "PHY" },
-        { name: "Engineering Chemistry", code: "CHEM" },
-        { name: "Basic Electrical Engineering", code: "BEE" },
-        { name: "Engineering Graphics", code: "EG" },
-      ]},
-      { number: 2, subjects: [
-        { name: "DEV (Development)", code: "DEV", materialUrl: devMaterial },
-        { name: "Engineering Mechanics", code: "EM" },
-        { name: "Thermodynamics", code: "TD" },
-        { name: "Material Science", code: "MS" },
-        { name: "Environmental Studies", code: "EVS" },
-      ]},
-      { number: 3, subjects: [
-        { name: "Strength of Materials", code: "SOM" },
-        { name: "Fluid Mechanics", code: "FM" },
-        { name: "Manufacturing Technology - I", code: "MT1" },
-        { name: "Kinematics of Machinery", code: "KOM" },
-        { name: "Mathematics - III", code: "M3" },
-      ]},
-      { number: 4, subjects: [
-        { name: "Dynamics of Machinery", code: "DOM" },
-        { name: "Heat Transfer", code: "HT" },
-        { name: "Manufacturing Technology - II", code: "MT2" },
-        { name: "Machine Design - I", code: "MD1" },
-        { name: "Industrial Engineering", code: "IE" },
-      ]},
-      { number: 5, subjects: [
-        { name: "IC Engines", code: "ICE" },
-        { name: "Thermal Engineering", code: "TE" },
-        { name: "Machine Design - II", code: "MD2" },
-        { name: "Metrology & Measurements", code: "MM" },
-        { name: "Elective - I", code: "ELEC" },
-      ]},
-      { number: 6, subjects: [
-        { name: "Automobile Engineering", code: "AE" },
-        { name: "Finite Element Analysis", code: "FEA" },
-        { name: "CAD/CAM", code: "CC" },
-        { name: "Refrigeration & Air Conditioning", code: "RAC" },
-        { name: "Elective - II", code: "ELEC" },
-      ]},
-      { number: 7, subjects: [
-        { name: "Robotics", code: "ROB" },
-        { name: "Power Plant Engineering", code: "PPE" },
-        { name: "Operations Research", code: "OR" },
-        { name: "Elective - III", code: "ELEC" },
-        { name: "Mini Project", code: "PROJ" },
-      ]},
-      { number: 8, subjects: [
-        { name: "Major Project", code: "PROJ" },
-        { name: "Seminar", code: "SEM" },
-        { name: "Internship", code: "INT" },
-      ]},
-    ];
-
-    semesterSubjects.civil = [
-      { number: 1, subjects: [
-        { name: "Mathematics - I (LAC)", code: "M1", materialUrl: "https://vemu.org/uploads/lecture_notes/23_12_2022_539602025.pdf" },
-        { name: "Engineering Physics", code: "PHY" },
-        { name: "Engineering Chemistry", code: "CHEM" },
-        { name: "Basic Electrical Engineering", code: "BEE" },
-        { name: "Engineering Graphics", code: "EG" },
-      ]},
-      { number: 2, subjects: [
-        { name: "DEV (Development)", code: "DEV", materialUrl: devMaterial },
-        { name: "Surveying", code: "SUR" },
-        { name: "Building Materials", code: "BM" },
-        { name: "Fluid Mechanics", code: "FM" },
-        { name: "Environmental Studies", code: "EVS" },
-      ]},
-      { number: 3, subjects: [
-        { name: "Strength of Materials", code: "SOM" },
-        { name: "Hydraulics & Hydraulic Machinery", code: "HHM" },
-        { name: "Concrete Technology", code: "CON" },
-        { name: "Engineering Geology", code: "EGL" },
-        { name: "Mathematics - III", code: "M3" },
-      ]},
-      { number: 4, subjects: [
-        { name: "Structural Analysis - I", code: "SA1" },
-        { name: "Geotechnical Engineering", code: "GTE" },
-        { name: "Water Resources Engineering", code: "WRE" },
-        { name: "Highway Engineering", code: "HE" },
-        { name: "Probability & Statistics", code: "P&S" },
-      ]},
-      { number: 5, subjects: [
-        { name: "Structural Analysis - II", code: "SA2" },
-        { name: "Design of RC Structures", code: "RCC" },
-        { name: "Environmental Engineering - I", code: "EE1" },
-        { name: "Estimation & Costing", code: "EC" },
-        { name: "Elective - I", code: "ELEC" },
-      ]},
-      { number: 6, subjects: [
-        { name: "Design of Steel Structures", code: "DSS" },
-        { name: "Environmental Engineering - II", code: "EE2" },
-        { name: "Foundation Engineering", code: "FE" },
-        { name: "Transportation Engineering", code: "TRE" },
-        { name: "Elective - II", code: "ELEC" },
-      ]},
-      { number: 7, subjects: [
-        { name: "Earthquake Resistant Design", code: "ERD" },
-        { name: "Remote Sensing & GIS", code: "GIS" },
-        { name: "Construction Management", code: "CM" },
-        { name: "Elective - III", code: "ELEC" },
-        { name: "Mini Project", code: "PROJ" },
-      ]},
-      { number: 8, subjects: [
-        { name: "Major Project", code: "PROJ" },
-        { name: "Seminar", code: "SEM" },
-        { name: "Internship", code: "INT" },
-      ]},
-    ];
-
-    // ===== STATE =====
-    let currentBranch = null;
-
-    // ===== NAVIGATION =====
-    function showPage(id) {
-      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-
-    function showProfile() { showPage('profilePage'); }
-
-    function showBranches() {
-      const list = document.getElementById('branchList');
-      list.innerHTML = branches.map(b => `
-        <button class="branch-card" data-branch="${b.id}" onclick="showSemesters('${b.id}')">
-          <span class="emoji">${b.icon}</span>
-          <div class="info">
-            <div class="short">${b.shortName}</div>
-            <div class="full">${b.name}</div>
-          </div>
-          <svg class="chevron icon-svg" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
-        </button>
-      `).join('');
-      showPage('branchPage');
-    }
-
-    function showSemesters(branchId) {
-      currentBranch = branches.find(b => b.id === branchId);
-      const sems = semesterSubjects[branchId] || [];
-      document.getElementById('semIcon').textContent = currentBranch.icon;
-      document.getElementById('semTitle').textContent = currentBranch.shortName;
-      document.getElementById('semesterGrid').innerHTML = sems.map(s => `
-        <button class="sem-card" onclick="showSubjects('${branchId}', ${s.number})">
-          <span class="sem-num">${s.number}</span>
-          <span class="sem-label">Semester</span>
-        </button>
-      `).join('');
-      showPage('semesterPage');
-    }
-
-    function showSubjects(branchId, semNum) {
-      currentBranch = branches.find(b => b.id === branchId);
-      const sem = (semesterSubjects[branchId] || []).find(s => s.number === semNum);
-      document.getElementById('subIcon').textContent = currentBranch.icon;
-      document.getElementById('subTitle').textContent = `${currentBranch.shortName}   Semester ${semNum}`;
-      document.getElementById('subjectBackBtn').onclick = () => showSemesters(branchId);
-
-      const fileIcon = `<svg class="icon-svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>`;
-      const extIcon = `<svg class="icon-svg" style="width:16px;height:16px" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
-
-      document.getElementById('subjectList').innerHTML = (sem?.subjects || []).map(sub => {
-        const has = !!sub.materialUrl;
-        const inner = `
-          <div class="subject-icon ${has ? 'active' : 'inactive'}">${fileIcon}</div>
-          <div class="subject-info">
-            <div class="subject-name">${sub.name}</div>
-            <div class="subject-code">${sub.code}</div>
-          </div>
-          ${has ? `<span class="view-pdf">View PDF ${extIcon}</span>` : `<span class="coming-soon">Coming soon</span>`}
-        `;
-        return has
-          ? `<a href="${sub.materialUrl}" target="_blank" rel="noopener noreferrer" class="subject-card has-material">${inner}</a>`
-          : `<div class="subject-card">${inner}</div>`;
-      }).join('');
-      showPage('subjectPage');
-    }
-  </script>
-</body>
-</html>
+<section class="hero">
+  <div class="profile-pic-wrap">
+    <img src="data:image/png;base64,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
